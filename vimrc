@@ -1,0 +1,167 @@
+" Credit: http://learnvimscriptthehardway.stevelosh.com/
+" Plugins:
+"   - vim-pathogen  (plugin manager)
+"   - nerdtree      (file explorer window) 
+"   - command-t     (file and buffer fuzzy finder)
+"   - vim-gitgutter (git diff tool)
+"   - vim-flake8    (python linter)
+"   - gruvbox       (color scheme)
+execute pathogen#infect()
+
+
+" ========== General Config ==========
+set number  			"line numbers
+set ruler   			"show row/column position
+set backspace=indent,eol,start  "allow backspace in insert mode
+set history=1000                "store command line history
+set showcmd                     "show incomplete cmds
+set showmode                    "show current mode
+set gcr=a:blinkon0              "disable cursor blink
+set visualbell                  "no sounds
+set autoread                    "reload files changed outside vim
+set hidden                      "buffers can exist in the background w/o being in a window
+
+
+" ========== File Types ==========
+filetype plugin indent on
+autocmd BufNewFile,BufRead *.py set ft=python
+autocmd BufNewFile,BufRead *.sql set ft=sql
+autocmd BufNewFile,BufRead *.json set ft=json
+autocmd BufNewFile,BufRead *.md set ft=markdown
+
+
+" ========== Turn Off Swap Files ==========
+set noswapfile
+set nobackup
+set nowb
+
+
+" ========== Persistent Undo ==========
+if has('persistent_undo')
+    silent !mkdir ~/.vim/backups > /dev/null 2>&1
+    set undodir=~/.vim/backups
+    set undofile
+endif
+
+
+" ========== Indentation ==========
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set list listchars=tab:\ \ ,trail:·
+
+
+" ========== Wraps and Folds ==========
+set nowrap             "don't wrap lines
+set linebreak          "wrap lines at convenient points
+set foldmethod=indent  "fold based on indent
+set foldnestmax=3      "deepest fold is 3 levels
+set nofoldenable       "don't fold by default
+
+
+" ========== Completion ==========
+set wildmode=list:longest
+set wildmenu
+
+
+" ========== Scrolling ==========
+set scrolloff=8       "start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+
+" ========== Editing ==========
+set clipboard=unnamed  "yank into clipboard by default
+set nofixendofline     "disable automatic new line at EOF
+
+
+" ========== Powerline ==========
+set laststatus=2   "always display the statusline in all windows
+set showtabline=2  "alwats display tabline
+set noshowmode     "hide default mode text
+
+
+" ========== Ctags ==========
+set tags=tags
+" To add repo tags to path: set tags+=<path_to_lib_tags>
+
+
+" ========== Colors ==========
+syntax on
+let &t_Co=256   "make colors work in iTerm2
+let &colorcolumn=join(range(121,999),",")  "add background color change at 120 characters
+
+
+" ========== Highlight ==========
+set hlsearch
+set incsearch  "highlight while typing
+
+
+" ========== gruvbox ==========
+let g:gruvbox_contrast_dark = ('hard')  "this needs to go first according to FAQ
+colorscheme gruvbox
+
+
+" ========== NERDTree ==========
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+
+
+" ========== vim-flake8 ==========
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_show_in_file=1
+
+
+" ========== Key Mappings ==========
+" Set leader and local leader
+let mapleader=","
+let maplocalleader="\\"
+
+" Open .vimrc in split window
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Source .vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Map "jk" in insert mode to escape key
+inoremap jk <esc>
+
+" Disable escape key in insert mode to learn mapping above
+inoremap <esc> <nop>
+
+" Move up and down at the start of each line
+nnoremap <c-j> +
+nnoremap <c-k> -
+
+" Map "H" to beginning of line
+nnoremap <c-h> I<esc>l
+
+" Map "L" to end end of line
+nnoremap <c-l> A<esc>
+
+" Uppercase inner word in insert mode
+inoremap <c-u> <esc>viwUeA
+
+" Surround word in single quotes
+nnoremap <leader>' ea'<esc>bi'<esc>el
+
+" Surround word in double quotes
+nnoremap <leader>" ea"<esc>bi"<esc>el
+
+" Search all files for word under the cursor
+nnoremap <c-f> :vimgrep <cword> **/*.py <bar> cw<cr>
+
+" Open NERDTree
+nnoremap <leader>m :NERDTreeFocus<cr>
+
+" Show python docs. Might want to consider using original mapping later
+nnoremap Q :<c-u>execute "!pydoc3 " . expand("<cword>")<cr>
