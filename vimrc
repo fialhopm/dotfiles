@@ -8,10 +8,9 @@
 "   - gruvbox       (color scheme)
 execute pathogen#infect()
 
-
 " ========== General Config ==========
-set number  			"line numbers
-set ruler   			"show row/column position
+set number  			        "line numbers
+set ruler   			        "show row/column position
 set backspace=indent,eol,start  "allow backspace in insert mode
 set history=1000                "store command line history
 set showcmd                     "show incomplete cmds
@@ -20,6 +19,7 @@ set gcr=a:blinkon0              "disable cursor blink
 set visualbell                  "no sounds
 set autoread                    "reload files changed outside vim
 set hidden                      "buffers can exist in the background w/o being in a window
+set nocompatible
 
 
 " ========== File Types ==========
@@ -54,7 +54,6 @@ set tabstop=4
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
-
 " ========== Wraps and Folds ==========
 set nowrap             "don't wrap lines
 set linebreak          "wrap lines at convenient points
@@ -84,16 +83,19 @@ set laststatus=2   "always display the statusline in all windows
 set showtabline=2  "alwats display tabline
 set noshowmode     "hide default mode text
 
+" Strip whitespace on save.
+autocmd BufWritePre * StripWhitespace
 
 " ========== Ctags ==========
-set tags=tags
+" set tags=tags
 " To add repo tags to path: set tags+=<path_to_lib_tags>
 
 
 " ========== Colors ==========
 syntax on
-let &t_Co=256   "make colors work in iTerm2
-let &colorcolumn=join(range(121,999),",")  "add background color change at 120 characters
+" let &t_Co=256   "make colors work in iTerm2
+set colorcolumn=121
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
 " ========== Highlight ==========
@@ -102,23 +104,23 @@ set incsearch  "highlight while typing
 
 
 " ========== gruvbox ==========
-let g:gruvbox_contrast_dark = ('hard')  "this needs to go first according to FAQ
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark = ('hard')  "this needs to go first according to FAQ
+" colorscheme gruvbox
 
 
-" ========== NERDTree ==========
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
+" " ========== NERDTree ==========
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" let NERDTreeMinimalUI=1
+" let NERDTreeDirArrows=1
 
 
 " ========== vim-flake8 ==========
-autocmd BufWritePost *.py call Flake8()
-let g:flake8_show_in_file=1
+" autocmd BufWritePost *.py call Flake8()
+" let g:flake8_show_in_file=1
 
 
 " ========== Key Mappings ==========
@@ -160,8 +162,19 @@ nnoremap <leader>" ea"<esc>bi"<esc>el
 " Search all files for word under the cursor
 nnoremap <c-f> :vimgrep <cword> **/*.py <bar> cw<cr>
 
-" Open NERDTree
-nnoremap <leader>m :NERDTreeFocus<cr>
+" " Open NERDTree
+" nnoremap <leader>m :NERDTreeFocus<cr>
 
 " Show python docs. Might want to consider using original mapping later
 nnoremap Q :<c-u>execute "!pydoc3 " . expand("<cword>")<cr>
+
+
+" vimwiki
+let wiki = {}
+let wiki.path = '~/my_wiki/'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_hl_headers = 1
+set tw=100
+set formatoptions+=w
+

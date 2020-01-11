@@ -1,5 +1,28 @@
 # Git branch in prompt.
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  }
 export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+# Edit and source
+alias eb='vim ~/.bashrc'
+alias sb='source ~/.bashrc'
+alias ev='vim ~/.vimrc'
+
+# Navigation
+alias ll="ls -al"
+alias cd='cd ..'
+alias cdd='cd ../..'
+alias cddd='cd ../../..'
+alias dev='cd ~/dev'
+
+# Git
+alias gb='git branch'
+alias gcm='git checkout master'
+
+alias gs='git stash'
+alias gsa='git stash apply'
+
+# Wiki
+alias w="vim ~/dev/vimwiki/index.md"
+alias r="python3 ~/dev/vimwiki/review.py"
