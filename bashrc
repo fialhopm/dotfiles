@@ -7,9 +7,11 @@ export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # Bash, tmux, vim
 alias tmuxat='tmux attach -t 0'
-alias b='bash'
+
 alias eb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
+alias c='clear'
+
 alias ev='vim ~/.vimrc'
 
 # Navigation
