@@ -4,7 +4,10 @@ parse_git_branch() {
   }
 export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
-# Edit and source
+
+# Bash, tmux, vim
+alias tmuxat='tmux attach -t 0'
+alias b='bash'
 alias eb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias ev='vim ~/.vimrc'
