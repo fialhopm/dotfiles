@@ -11,4 +11,6 @@ brew install python
 mkdir ~/dev/
 cd ~/dev/
 git clone git@github.com:fialhopm/dotfiles.git
-
+ln -s -f ~/dev/dotfiles/vimrc ~/.vimrc
+ln -s -f ~/dev/dotfiles/bashrc ~/.bashrc
+ln -s -f ~/dev/dotfiles/tmux.conf ~/.tmux.conf

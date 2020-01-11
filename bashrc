@@ -18,9 +18,8 @@ alias dev='cd ~/dev/'
 # Git
 alias gb='git branch'
 alias gcm='git checkout master'
-
-alias gs='git stash'
-alias gsa='git stash apply'
+alias gs='git status'
+alias gd='git diff'
 
 # Wiki
 alias w="vim ~/dev/vimwiki/index.md"
