@@ -11,10 +11,9 @@ alias ev='vim ~/.vimrc'
 
 # Navigation
 alias ll="ls -al"
-alias cd='cd ..'
-alias cdd='cd ../..'
-alias cddd='cd ../../..'
-alias dev='cd ~/dev'
+alias cdd='cd ..'
+alias cddd='cd ../..'
+alias dev='cd ~/dev/'
 
 # Git
 alias gb='git branch'
