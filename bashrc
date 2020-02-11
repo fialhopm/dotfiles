@@ -25,16 +25,21 @@ alias gb='git branch'
 alias gcm='git checkout master'
 alias gs='git status'
 alias gd='git diff'
+alias ggg="git add .; \
+           git commit -am.; \
+           git push;"
 
 # Wiki
 alias w="vim ~/dev/vimwiki/index.md"
 alias r="python3 ~/dev/vimwiki/review.py"
+alias ry="date -v-1d +%F | xargs python3 review.py"
+alias ryy="date -v-2d +%F | xargs python3 review.py"
+alias ryyy="date -v-3d +%F | xargs python3 review.py"
+
+# Others
 alias n="open https://www.reddit.com/r/dataengineering/; \
          open https://news.ycombinator.com/; \
          open https://www.astronomer.io/blog/; \
          open https://medium.com/tag/data-engineering; \
          open https://medium.com/tag/airflow; \
          open https://medium.com/tag/python; "
-alias ggg="git add .; \
-           git commit -am.; \
-           git push;"
