@@ -13,13 +13,16 @@ set number  			        "line numbers
 set ruler   			        "show row/column position
 set backspace=indent,eol,start  "allow backspace in insert mode
 set history=1000                "store command line history
-set showcmd                     "show incomplete cmds
-set showmode                    "show current mode
 set gcr=a:blinkon0              "disable cursor blink
 set visualbell                  "no sounds
 set autoread                    "reload files changed outside vim
 set hidden                      "buffers can exist in the background w/o being in a window
 set nocompatible
+
+" Hide status bar
+set noshowcmd
+set noshowmode
+set laststatus=0
 
 
 " ========== File Types ==========
@@ -77,14 +80,6 @@ set sidescroll=1
 set clipboard=unnamed  "yank into clipboard by default
 set nofixendofline     "disable automatic new line at EOF
 
-
-" ========== Powerline ==========
-set laststatus=2   "always display the statusline in all windows
-set showtabline=2  "alwats display tabline
-set noshowmode     "hide default mode text
-
-" Strip whitespace on save.
-autocmd BufWritePre * StripWhitespace
 
 " ========== Ctags ==========
 " set tags=tags
@@ -159,6 +154,9 @@ nnoremap <leader>' ea'<esc>bi'<esc>el
 " Surround word in double quotes
 nnoremap <leader>" ea"<esc>bi"<esc>el
 
+" Surround word in double asterisks (bold in markdown)
+nnoremap <leader>* ea**<esc>bbi**<esc>el
+
 " Search all files for word under the cursor
 nnoremap <c-f> :vimgrep <cword> **/*.py <bar> cw<cr>
 
@@ -175,6 +173,6 @@ let wiki.path = '~/my_wiki/'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_hl_headers = 1
-set tw=100
+set tw=120
 set formatoptions+=w
 

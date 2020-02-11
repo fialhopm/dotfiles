@@ -29,3 +29,12 @@ alias gd='git diff'
 # Wiki
 alias w="vim ~/dev/vimwiki/index.md"
 alias r="python3 ~/dev/vimwiki/review.py"
+alias n="open https://www.reddit.com/r/dataengineering/; \
+         open https://news.ycombinator.com/; \
+         open https://www.astronomer.io/blog/; \
+         open https://medium.com/tag/data-engineering; \
+         open https://medium.com/tag/airflow; \
+         open https://medium.com/tag/python; "
+alias ggg="git add .; \
+           git commit -am.; \
+           git push;"
