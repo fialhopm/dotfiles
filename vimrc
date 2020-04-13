@@ -77,7 +77,7 @@ set sidescroll=1
 
 
 " ========== Editing ==========
-set clipboard=unnamed  "yank into clipboard by default
+set clipboard=unnamedplus  "yank into clipboard by default
 set nofixendofline     "disable automatic new line at EOF
 
 

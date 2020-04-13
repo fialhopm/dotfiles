@@ -15,6 +15,9 @@ alias c='clear'
 # vim
 alias ev='vim ~/.vimrc'
 
+# python
+alias python='python3.8'
+
 # git
 alias gb='git branch'
 alias gcm='git checkout master'
@@ -40,7 +43,9 @@ alias gol="cd ~/dev/vimwiki; \
 alias copy='xsel -ib'
 
 # news
-alias n="open https://www.reddit.com/r/dataengineering/; \
+alias n="open https://www.ft.com; \
+         open https://www.nytimes.com; \
+         open https://www.reddit.com/r/dataengineering/; \
          open https://news.ycombinator.com/; \
          open https://www.astronomer.io/blog/; \
          open https://medium.com/tag/data-engineering; \
