@@ -30,11 +30,11 @@ alias ggg="git add .; \
 # wiki
 alias w="vim ~/dev/wiki/index.md"
 alias r="python3 ~/dev/wiki/review.py"
-alias ry="date -v-1d +%F | xargs python3 review.py"
-alias ryy="date -v-2d +%F | xargs python3 review.py"
-alias ryyy="date -v-3d +%F | xargs python3 review.py"
-alias ryyyy="date -v-4d +%F | xargs python3 review.py"
-alias ryyyyy="date -v-5d +%F | xargs python3 review.py"
+alias ry="date -v-1d +%F | xargs python3 ~/dev/wiki/review.py"
+alias ryy="date -v-2d +%F | xargs python3 ~/dev/wiki/review.py"
+alias ryyy="date -v-3d +%F | xargs python3 ~/dev/wiki/review.py"
+alias ryyyy="date -v-4d +%F | xargs python3 ~/dev/wiki/review.py"
+alias ryyyyy="date -v-5d +%F | xargs python3 ~/dev/wiki/review.py"
 alias gol="cd ~/dev/vimwiki; \
            open http://localhost:4567; \
            gollum --css;"
