@@ -38,12 +38,14 @@ if [[ $OSTYPE == linux* ]]; then
     three_days_ago="$(date -d '-3 day' +'%Y-%m-%d')"
     four_days_ago="$(date -d '-4 day' +'%Y-%m-%d')"
     five_days_ago="$(date -d '-5 day' +'%Y-%m-%d')"
+    browser_cmd="firefox"
 elif [[ $OSTYPE == darwin* ]]; then 
     one_day_ago="$(date -v-1d +%F)"
     two_days_ago="$(date -v-2d +%F)"
     three_days_ago="$(date -v-3d +%F)"
     four_days_ago="$(date -v-4d +%F)"
     five_days_ago="$(date -v-5d +%F)"
+    browser_cmd="open"
 fi
 
 
@@ -60,11 +62,11 @@ alias gol="cd ~/dev/wiki/; \
 alias copy='xsel -ib'
 
 # news
-alias n="open https://www.ft.com; \
-         open https://www.nytimes.com; \
-         open https://www.reddit.com/r/dataengineering/; \
-         open https://news.ycombinator.com/; \
-         open https://www.astronomer.io/blog/; \
-         open https://medium.com/tag/data-engineering; \
-         open https://medium.com/tag/airflow; \
-         open https://medium.com/tag/python; "
+alias n="$browser_cmd https://www.ft.com; \
+         $browser_cmd https://www.nytimes.com; \
+         $browser_cmd https://www.reddit.com/r/dataengineering/; \
+         $browser_cmd https://news.ycombinator.com/; \
+         $browser_cmd https://www.astronomer.io/blog/; \
+         $browser_cmd https://medium.com/tag/data-engineering; \
+         $browser_cmd https://medium.com/tag/airflow; \
+         $browser_cmd https://medium.com/tag/python; "
