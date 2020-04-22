@@ -169,7 +169,7 @@ nnoremap Q :<c-u>execute "!pydoc3 " . expand("<cword>")<cr>
 
 " vimwiki
 let wiki = {}
-let wiki.path = '~/my_wiki/'
+let wiki.path = '~/my_wiki/'  " repo is called wiki, but symlink in home dir should be vimwiki
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_hl_headers = 1
