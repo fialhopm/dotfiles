@@ -1,11 +1,11 @@
-" Credit: http://learnvimscriptthehardway.stevelosh.com/
-
 " ==================== Plugins ====================
 " Managed through vim-plug: https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim.plugged')
 
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/vimwiki/vimwiki'
+" TODO: 'https://github.com/airblade/vim-gitgutter'
+" TODO: 'https://github.com/editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -18,8 +18,17 @@ let g:vimwiki_hl_headers = 1
 set tw=120
 set formatoptions+=w
 
+" ========== gitgutter ==========
+set updatetime=100
+let g:gitgutter_enabled = 0
+let g:gitgutter_set_sign_backgrounds = 1
+highlight GitGutterAdd    guifg=red ctermfg=2
+highlight GitGutterChange guifg=red ctermfg=3
+highlight GitGutterDelete guifg=red ctermfg=1
+
 
 " ==================== Configuration ====================
+" Credit: http://learnvimscriptthehardway.stevelosh.com/
 
 " ========== General Config ==========
 set number  			        "line numbers
