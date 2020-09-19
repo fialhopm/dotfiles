@@ -10,6 +10,7 @@ alias ll="ls -al"
 alias cdd='cd ..'
 alias cddd='cd ../..'
 alias dev='cd ~/dev/'
+alias scratch='cd ~/scratch/'
 alias c='clear'
 
 # vim

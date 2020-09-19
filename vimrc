@@ -1,28 +1,34 @@
 " Credit: http://learnvimscriptthehardway.stevelosh.com/
-" Plugins:
-"   - vim-pathogen  (plugin manager)
-"   - nerdtree      (file explorer window) 
-"   - command-t     (file and buffer fuzzy finder)
-"   - vim-gitgutter (git diff tool)
-"   - vim-flake8    (python linter)
-"   - gruvbox       (color scheme)
-execute pathogen#infect()
+
+" ==================== Plugins ====================
+" Managed through vim-plug: https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim.plugged')
+
+Plug 'https://github.com/tpope/vim-vinegar'
+Plug 'https://github.com/vimwiki/vimwiki'
+
+call plug#end()
+
+" ========== vimwiki ==========
+let wiki = {}
+let wiki.path = '~/my_wiki/'  " repo is called wiki, but symlink in home dir should be vimwiki
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_hl_headers = 1
+set tw=120
+set formatoptions+=w
+
+
+" ==================== Configuration ====================
 
 " ========== General Config ==========
 set number  			        "line numbers
 set ruler   			        "show row/column position
-set backspace=indent,eol,start  "allow backspace in insert mode
 set history=1000                "store command line history
-set gcr=a:blinkon0              "disable cursor blink
 set visualbell                  "no sounds
 set autoread                    "reload files changed outside vim
 set hidden                      "buffers can exist in the background w/o being in a window
 set nocompatible
-
-" Hide status bar
-set noshowcmd
-set noshowmode
-set laststatus=0
 
 
 " ========== File Types ==========
@@ -166,13 +172,4 @@ nnoremap <c-f> :vimgrep <cword> **/*.py <bar> cw<cr>
 " Show python docs. Might want to consider using original mapping later
 nnoremap Q :<c-u>execute "!pydoc3 " . expand("<cword>")<cr>
 
-
-" vimwiki
-let wiki = {}
-let wiki.path = '~/my_wiki/'  " repo is called wiki, but symlink in home dir should be vimwiki
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_hl_headers = 1
-set tw=120
-set formatoptions+=w
 
