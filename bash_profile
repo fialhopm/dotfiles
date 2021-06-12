@@ -16,3 +16,5 @@ export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/pedro/go/bin
+export GOPATH=/home/pedro/go

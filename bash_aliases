@@ -28,6 +28,11 @@ alias ggg="git add .; \
            git commit -am.; \
            git push;"
 
+# go
+alias gi='go install .'
+alias gt='go test ./...'
+alias gf='go fmt ./...'
+
 # wiki
 alias w="vim ~/dev/wiki/index.md"
 alias r="python3 ~/dev/wiki/review.py"
