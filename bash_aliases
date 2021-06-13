@@ -24,6 +24,7 @@ alias gb='git branch'
 alias gcm='git checkout master'
 alias gs='git status'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias ggg="git add .; \
            git commit -am.; \
            git push;"
