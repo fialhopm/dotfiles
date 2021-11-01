@@ -1,6 +1,7 @@
-# bash
-alias ealias='vim ~/.bash_aliases'
-alias salias='source ~/.bash_aliases'
+# zsh
+. ~/.zprofile
+alias ez='vim ~/.zshrc'
+alias sz='source ~/.zshrc'
 
 # tmux
 alias tmuxat='tmux attach -t 0'

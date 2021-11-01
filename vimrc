@@ -92,7 +92,12 @@ set sidescroll=1
 
 
 " ========== Editing ==========
-set clipboard=unnamedplus  "yank into clipboard by default
+" Yank into clipboard by default
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 set nofixendofline     "disable automatic new line at EOF
 
 
