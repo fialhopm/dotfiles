@@ -1,3 +1,4 @@
 # dotfiles
 
-Configuration files and a development setup script.
+Set up script for macOS.
+Zsh, vim and tmux config files.
