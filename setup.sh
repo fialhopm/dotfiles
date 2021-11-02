@@ -25,3 +25,8 @@ ln -s -f ~/dev/dotfiles/zshrc ~/.zshrc
 ln -s -f ~/dev/dotfiles/zprofile ~/.zprofile
 ln -s -f ~/dev/dotfiles/tmux.conf ~/.tmux.conf
 ln -s -f ~/dev/dotfiles/vimrc ~/.vimrc
+
+# go
+open https://golang.org/doc/install
+mkdir -p $HOME/go/{bin,src}
+mkdir -p $HOME/go/src/github.com
