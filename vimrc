@@ -11,9 +11,9 @@ call plug#end()
 
 " ========== vimwiki ==========
 let wiki = {}
-let wiki.path = '~/my_wiki/'  " repo is called wiki, but symlink in home dir should be vimwiki
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+" let wiki.path = '~/my_wiki/'  " repo is called wiki, but symlink in home dir should be vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'go': 'go'}
 let g:vimwiki_hl_headers = 1
 set tw=120
 set formatoptions+=w

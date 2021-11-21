@@ -3,8 +3,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/home/pedro/go/bin
-export GOPATH=/home/pedro/go
+export PATH=$PATH:/Users/pedro/go/bin
+export GOPATH=/Users/pedro/go
 
 # Git
 parse_git_branch() {
