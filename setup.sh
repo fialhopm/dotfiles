@@ -12,19 +12,11 @@ echo "set up Github SSH key"
 open https://github.com/settings/ssh/new
 
 # dotfiles
-mkdir -p ~/dev/
-cd ~/dev/
-
-if [ ! -d "$dotfiles" ]; then
-    git clone git@github.com:fialhopm/dotfiles.git
-else
-    echo "already clone dotfiles"
-fi
-
-ln -s -f ~/dev/dotfiles/zshrc ~/.zshrc
-ln -s -f ~/dev/dotfiles/zprofile ~/.zprofile
-ln -s -f ~/dev/dotfiles/tmux.conf ~/.tmux.conf
-ln -s -f ~/dev/dotfiles/vimrc ~/.vimrc
+git clone git@github.com:fialhopm/dotfiles.git ~/.dotfiles
+ln -s -f ~/.dotfiles/zshrc ~/.zshrc
+ln -s -f ~/.dotfiles/zprofile ~/.zprofile
+ln -s -f ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s -f ~/.dotfiles/vimrc ~/.vimrc
 
 # go
 open https://golang.org/doc/install
