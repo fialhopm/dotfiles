@@ -38,10 +38,12 @@ alias gi='go install .'
 alias gt='go test ./...'
 alias gf='go fmt ./...'
 
-# wiki
+# clipboard
+alias copy='xsel -ib'
+
+# wiki - spaced repetition
 alias w="vim ~/dev/wiki/index.md"
 alias r="python3 ~/dev/wiki/review.py"
-
 
 if [[ $OSTYPE == linux* ]]; then 
     one_day_ago="$(date -d '-1 day' +'%Y-%m-%d')"
@@ -68,16 +70,3 @@ alias ryyyyy="echo $five_days_ago | xargs python3 ~/dev/wiki/review.py"
 alias gol="cd ~/dev/wiki/; \
            open http://localhost:4567; \
            gollum --css;"
-
-# clipboard
-alias copy='xsel -ib'
-
-# news
-alias n="$browser_cmd https://www.ft.com; \
-         $browser_cmd https://www.nytimes.com; \
-         $browser_cmd https://www.reddit.com/r/dataengineering/; \
-         $browser_cmd https://news.ycombinator.com/; \
-         $browser_cmd https://www.astronomer.io/blog/; \
-         $browser_cmd https://medium.com/tag/data-engineering; \
-         $browser_cmd https://medium.com/tag/airflow; \
-         $browser_cmd https://medium.com/tag/python; "
