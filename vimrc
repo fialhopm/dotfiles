@@ -109,6 +109,7 @@ set nofixendofline     "disable automatic new line at EOF
 syntax on
 let &t_Co=256   "make colors work in iTerm2
 set colorcolumn=121
+colorscheme torte
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
