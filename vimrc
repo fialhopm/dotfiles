@@ -4,7 +4,9 @@ call plug#begin('~/.vim.plugged')
 
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/vimwiki/vimwiki'
-" TODO: 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/sedm0784/vim-you-autocorrect'
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " TODO: 'https://github.com/editorconfig/editorconfig-vim'
 
 call plug#end()
@@ -13,6 +15,7 @@ call plug#end()
 let wiki = {}
 " let wiki.path = '~/my_wiki/'  " repo is called wiki, but symlink in home dir should be vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'go': 'go'}
 let g:vimwiki_hl_headers = 1
 set tw=120
@@ -38,6 +41,7 @@ set visualbell                  "no sounds
 set autoread                    "reload files changed outside vim
 set hidden                      "buffers can exist in the background w/o being in a window
 set nocompatible
+set backspace=indent,eol,start  "use backspace in iterm2
 
 
 " ========== File Types ==========
@@ -101,14 +105,9 @@ endif
 set nofixendofline     "disable automatic new line at EOF
 
 
-" ========== Ctags ==========
-" set tags=tags
-" To add repo tags to path: set tags+=<path_to_lib_tags>
-
-
 " ========== Colors ==========
 syntax on
-" let &t_Co=256   "make colors work in iTerm2
+let &t_Co=256   "make colors work in iTerm2
 set colorcolumn=121
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
@@ -116,26 +115,6 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " ========== Highlight ==========
 set hlsearch
 set incsearch  "highlight while typing
-
-
-" ========== gruvbox ==========
-" let g:gruvbox_contrast_dark = ('hard')  "this needs to go first according to FAQ
-" colorscheme gruvbox
-
-
-" " ========== NERDTree ==========
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" let NERDTreeMinimalUI=1
-" let NERDTreeDirArrows=1
-
-
-" ========== vim-flake8 ==========
-" autocmd BufWritePost *.py call Flake8()
-" let g:flake8_show_in_file=1
 
 
 " ========== Key Mappings ==========
@@ -180,10 +159,4 @@ nnoremap <leader>* ea**<esc>bbi**<esc>el
 " Search all files for word under the cursor
 nnoremap <c-f> :vimgrep <cword> **/*.py <bar> cw<cr>
 
-" " Open NERDTree
-" nnoremap <leader>m :NERDTreeFocus<cr>
-
-" Show python docs. Might want to consider using original mapping later
-nnoremap Q :<c-u>execute "!pydoc3 " . expand("<cword>")<cr>
-
-
+set completeopt-=preview

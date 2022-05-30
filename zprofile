@@ -1,6 +1,9 @@
 # Brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Make
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+
 # Go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/Users/pedro/go/bin

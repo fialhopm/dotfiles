@@ -2,9 +2,11 @@
 . ~/.zprofile
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
+bindkey "^R" history-incremental-search-backward
 
 # tmux
 alias tmuxat='tmux attach -t 0'
+alias et='vim ~/.tmux.conf'
 
 # navigation
 alias ll="ls -al"
@@ -15,6 +17,7 @@ alias scratch='cd ~/scratch/'
 alias c='clear'
 
 # vim
+alias v='vim'
 alias ev='vim ~/.vimrc'
 
 # python
