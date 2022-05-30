@@ -5,9 +5,7 @@ call plug#begin('~/.vim.plugged')
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/vimwiki/vimwiki'
 Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/sedm0784/vim-you-autocorrect'
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" TODO: 'https://github.com/editorconfig/editorconfig-vim'
 
 call plug#end()
 
