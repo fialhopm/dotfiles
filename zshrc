@@ -44,6 +44,7 @@ alias copy='xsel -ib'
 # wiki - spaced repetition
 alias w="vim ~/dev/wiki/index.md"
 alias r="python3 ~/dev/wiki/review.py"
+alias rp="python3 ~/dev/wiki/review.py -d PHONE"
 
 if [[ $OSTYPE == linux* ]]; then 
     one_day_ago="$(date -d '-1 day' +'%Y-%m-%d')"

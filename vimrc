@@ -6,6 +6,7 @@ Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/vimwiki/vimwiki'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
